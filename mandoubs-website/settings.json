@@ -1,0 +1,25 @@
+{
+    "users": {
+      "admin": {
+        "password": "admin123",
+        "role": "admin"
+      },
+      "manaa": {
+        "password": "1234",
+        "role": "mandoub"
+      },
+      "malik": {
+        "password": "5678",
+        "role": "mandoub"
+      },
+      "ahmed": {
+        "password": "9999",
+        "role": "mandoub"
+      },
+      "omar": {
+        "password": "0000",
+        "role": "mandoub"
+      }
+    }
+  }
+  

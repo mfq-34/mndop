@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مراسلة العميل عبر واتساب</title>
+    <style>
+        body {
+            font-family: 'Cairo', sans-serif;
+            background: linear-gradient(to right, #25D366, #128C7E);
+            color: white;
+            text-align: center;
+            padding: 40px;
+        }
+        .container {
+            background-color: white;
+            color: #333;
+            padding: 30px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            max-width: 400px;
+            margin: auto;
+        }
+        input, textarea, button {
+            width: 90%;
+            padding: 12px;
+            margin: 10px 0;
+            font-size: 18px;
+            border-radius: 8px;
+            border: 1px solid #ccc;
+        }
+        button {
+            background-color: #25D366;
+            color: white;
+            border: none;
+            font-weight: bold;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #1DA851;
+        }
+        .back-button {
+            background-color: #ff6b6b;
+            margin-top: 15px;
+        }
+        .back-button:hover {
+            background-color: #ff3b3b;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <h2>إرسال رسالة عبر واتساب</h2>
+
+        <input type="text" id="clientName" placeholder="اسم العميل">
+        <input type="text" id="orderNumber" placeholder="رقم الطلب">
+        <input type="text" id="phone" placeholder="رقم جوال العميل (بدون صفر)">
+        <br>
+        <button onclick="sendWhatsApp()">إرسال الرسالة</button>
+        <button class="back-button" onclick="goBack()">رجوع للصفحة الرئيسية</button>
+    </div>
+
+    <script>
+        function sendWhatsApp() {
+            var clientName = document.getElementById("clientName").value.trim();
+            var orderNumber = document.getElementById("orderNumber").value.trim();
+            var phone = document.getElementById("phone").value.trim();
+
+            if (clientName === "" || orderNumber === "" || phone === "") {
+                alert("يرجى تعبئة جميع الحقول!");
+                return;
+            }
+
+            var message = `مرحباً ${clientName}، طلبك رقم ${orderNumber} جاهز للتسليم. شكراً لتعاملك معنا!`;
+            var encodedMessage = encodeURIComponent(message);
+            var link = "https://wa.me/" + phone + "?text=" + encodedMessage;
+            
+            window.open(link, "_blank");
+        }
+
+        function goBack() {
+            window.location.href = "index.html"; // غير هذا إذا كان اسم صفحتك الرئيسية مختلف
+        }
+    </script>
+
+</body>
+</html>
